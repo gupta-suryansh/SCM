@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Scholarhublogo.jpg">
+    <title>About Us | ScholarHub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;500;700&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #f9fafc;
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+        padding: 0 20px;
+    }
+
+    header {
+        background: linear-gradient(135deg, #0077cc, #0056a3);
+        color: #fff;
+        padding: 60px 20px;
+        text-align: center;
+        border-radius: 15px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    header::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        top: -50%;
+        left: -50%;
+        transform: rotate(45deg);
+        transition: all 0.5s ease;
+    }
+
+    header:hover::before {
+        left: 150%;
+    }
+
+    header h2 {
+        font-size: 3em;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        margin-bottom: 10px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .content {
+        max-width: 1000px;
+        margin: 0 auto;
+        font-size: 1.2em;
+        line-height: 1.8;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .intro {
+        font-size: 1.3em;
+        font-weight: 300;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    .section-box {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 30px;
+        margin: 30px 0;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 6px solid #0077cc;
+        text-align: left;
+    }
+
+    .section-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-box h3 {
+        font-size: 2em;
+        color: #0077cc;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul li {
+        text-align: left;
+        font-size: 1.1em;
+        margin: 12px 0;
+        position: relative;
+        padding-left: 40px;
+    }
+
+    ul li::before {
+        content: '✔️';
+        font-size: 1.4em;
+        color: #0077cc;
+        position: absolute;
+        left: 0;
+        top: -2px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff6f61, #ff8e53);
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 1.1em;
+        font-weight: 600;
+        margin-top: 20px;
+        text-decoration: none;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background: linear-gradient(135deg, #ff8e53, #ff6f61);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .site-footer {
+        text-align: center;
+        background: linear-gradient(135deg, #0077cc, #0056a3);
+        color: #fff;
+        padding: 20px 0;
+        margin-top: 50px;
+        border-radius: 10px;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        font-size: 0.95em;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+    }
+
+    @media (min-width: 768px) {
+        header h2 {
+            font-size: 3.5em;
+        }
+
+        .content {
+            font-size: 1.3em;
+        }
+
+        .section-box h3 {
+            font-size: 2.2em;
+        }
+
+        ul li {
+            font-size: 1.2em;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <h2>About Us</h2>
+    </header>
+
+    <section class="content">
+        <p class="intro">Welcome to <strong>ScholarHub</strong>, where we are dedicated to fostering a love for learning
+            and empowering individuals through education. Our mission is to provide high-quality, accessible resources
+            that inspire learners of all ages and backgrounds.</p>
+
+        <p>Our platform offers a diverse range of courses, study materials, and interactive content designed by experts
+            in fields such as science, technology, humanities, and more. Whether you’re looking to master a new skill,
+            prepare for exams, or simply explore new areas of knowledge, we provide the resources to help you succeed.
+        </p>
+
+        <div class="section-box">
+            <h3>Our Vision</h3>
+            <p>We envision a world where everyone has the opportunity to achieve their educational goals, no matter
+                their starting point. We strive to create a supportive environment where learners can explore, discover,
+                and grow.</p>
+        </div>
+
+        <div class="section-box">
+            <h3>What We Offer</h3>
+            <ul>
+                <li><strong>Comprehensive Courses:</strong> Curated courses covering foundational skills to advanced
+                    topics.</li>
+                <li><strong>Interactive Learning Experiences:</strong> Engaging experiences that keep learners
+                    motivated.</li>
+                <li><strong>Community and Support:</strong> Join our vibrant community of learners and educators.</li>
+                <li><strong>Continuous Improvement:</strong> Evolving offerings based on user feedback and research.
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-box">
+            <h3>Join Us</h3>
+            <p>Embark on this educational journey with us. Explore our resources, connect with others, and discover the
+                power of knowledge. Together, let’s make learning an enriching experience for everyone.</p>
+            <a href="signup.html" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 ScholarHub. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

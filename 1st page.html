@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ScholarHub - Your Premier Online Learning Platform">
+    <title>ScholarHub | Transform Your Learning Journey</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1f2937;
+            line-height: 1.6;
+            background-color: #f8fafc;
+        }
+        
+        .navbar {
+            background: #0f172a;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .navbar-brand span {
+            color: #f5b209;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+        }
+        
+        .nav-link:hover {
+            color: #f5b209 !important;
+            transform: translateY(-2px);
+        }
+        
+        .navbar .btn-primary {
+            background-color: #f5b209;
+            border: none;
+            color: #0f172a;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar .btn-primary:hover {
+            background-color: #f8f80a;
+            transform: translateY(-2px);
+        }
+        
+        header {
+            height: 80vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)),
+                url('https://images.unsplash.com/photo-152417ZZ32090-f2a869830b6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .header-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .header-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn-cta {
+            background-color: #f5b209;
+            color: #0f172a;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #0f172a;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+        
+        .card-text {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-primary {
+            background-color: #2563eb;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        .review-card {
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .review-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        
+        .star-rating {
+            color: #f5b209;
+           
+        }
+        
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer h5 {
+            color: #f5b209;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #f5b209;
+            text-decoration: none;
+        }
+        
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #f5b209;
+            transform: translateY(-3px);
+        }
+        
+        .free-trial-section {
+            background: white;
+            padding: 4rem 0;
+            border-radius: 16px;
+            margin: 4rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-control {
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .form-control:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .slider-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slider-content.active {
+            opacity: 1;
+        }
+        
+        .slider-content .header-content {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .slider-content.active .header-content {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease-in-out;
+        }
+        
+        body.dark-mode {
+            background-color: black;
+            color: #fff;
+        }
+        
+        .navbar.dark-mode {
+            background-color: #222;
+        }
+        
+        .dark-mode-toggle {
+            margin-left: 20px;
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            padding: 15px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+        }
+
+        .carousel-item {
+            padding: 20px 0;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-light">
+        <a class="navbar-brand" href="#">ScholarHub<span>.</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.html"><i class="fa fa-info-circle"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="courses2.html"><i class="fa fa-graduation-cap"></i> Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactus.html"><i class="fa fa-envelope"></i> Contact</a>
+                </li>
+            </ul>
+            <a class="btn btn-primary ml-3" href="login.html"><i class="fa fa-user"></i> Login/Signup</a>
+<div class="dark-mode-toggle">
+    <button id="darkModeToggle" class="btn btn-secondary btn-sm">
+        <i class="fa fa-moon-o"></i> Toggle Dark Mode
+    </button>
+</div>
+    </nav>
+
+    <header>
+        <div class="slider-content active">
+            <div class="header-content animate-fade-up">
+                <h1>Transform Your Future with ScholarHub</h1>
+                <p>Access world-class education from industry experts and unlock your potential through interactive
+                    learning experiences.</p>
+                <a href="courses2.html" class="btn btn-cta">Explore Our Courses</a>
+            </div>
+        </div>
+
+        <div class="slider-content">
+            <div class="header-content animate-fade-up">
+                <h1>Learn from the best</h1>
+                <p>Join a community of learners and get guidance from experienced professionals.</p>
+                <a href="courses2.html" class="btn btn-cta">Explore Our Courses</a>
+            </div>
+        </div>
+
+        <div class="slider-content">
+            <div class="header-content animate-fade-up">
+                <h1>Your Path to Success</h1>
+                <p>Discover personalized learning paths that align with your career goals.</p>
+                <a href="courses.html" class="btn btn-cta">Explore Our Courses</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+       
+        <section id="popular-courses" class="container my-5">
+            <h2 class="text-center display-4">Popular Courses</h2>
+            <div class="border-bottom border-warning mx-auto mb-4" style="width: 150px;"></div>
+    
+            <div id="courseCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="https://media.licdn.com/dms/image/v2/D5612AQFfhTEictqBHA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1721174916441?e=2147483647&v=beta&t=IqnGNJxS4J-yaL4rgLBlx-cbNAbFwpEMCRvkkLXsR48"
+                                        class="card-img-top" alt="FrontEnd Course">
+                                    <div class="card-body">
+                                        <h5 class="card-title">FrontEnd</h5>
+                                        <p class="card-text">Front-end development is the process of building components
+                                            that
+                                            interact with users.</p>
+                                        <a href="Fronten.html" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="https://www.guvi.in/blog/wp-content/uploads/2024/03/job_description_of_a_backend_developer-1.webp"
+                                        class="card-img-top" alt="BackEnd Course">
+                                    <div class="card-body">
+                                        <h5 class="card-title">BackEnd</h5>
+                                        <p class="card-text">Back-end refers to parts of a computer application or a
+                                            program's code
+                                            that allow it to operate and that cannot be accessed by a user.</p>
+                                        <a href="#" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="https://www.w3webschool.com/wp-content/uploads/2024/02/Full-Stack-Web-Development-Course-in-Kolkata.webp"
+                                        class="card-img-top" alt="Full Web Development Course">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Full Web Development</h5>
+                                        <p class="card-text">Full Web Development involves creating, building, and
+                                            maintaining
+                                            websites and web applications.</p>
+                                        <a href="#" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="ds.jpg" class="card-img-top" alt="Data Science Course">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Data Science</h5>
+                                        <p class="card-text">Data Science combines domain expertise, programming skills, and
+                                            knowledge of mathematics and statistics.</p>
+                                        <a href="#" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="AIandmachinelearning.jpg" class="card-img-top" alt="AI & ML Course">
+                                    <div class="card-body">
+                                        <h5 class="card-title">AI & Machine Learning</h5>
+                                        <p class="card-text">Learn how to build intelligent systems using AI and machine
+                                            learning
+                                            techniques.</p>
+                                        <a href="#" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="Cybersecurity.jpg" class="card-img-top" alt="Cybersecurity Course">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cyber Security</h5>
+                                        <p class="card-text">Learn to protect systems, networks, and programs from digital
+                                            attacks.</p>
+                                        <a href="#" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="blockchains.png" class="card-img-top" alt="Blockchain Course">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Blockchain</h5>
+                                        <p class="card-text">Understand blockchain technology and how it revolutionizes data
+                                            transactions.</p>
+                                        <a href="#" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="Cloud Computing.jpeg" class="card-img-top" alt="Cloud Computing Course">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cloud Computing</h5>
+                                        <p class="card-text">Master cloud platforms like AWS, Azure, and Google Cloud to
+                                            advance
+                                            your IT skills.</p>
+                                        <a href="#" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="DEvopz.webp" class="card-img-top" alt="DevOps Course">
+                                    <div class="card-body">
+                                        <h5 class="card-title">DevOps</h5>
+                                        <p class="card-text">Learn DevOps practices to improve software delivery and
+                                            operations.</p>
+                                        <a href="#" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <a class="carousel-control-prev" href="#courseCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#courseCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+        
+        <section class="container mt-5">
+
+            <div class="row">
+                <section id="blog" class="container mt-5">
+                    <h2 class="text-center display-4">Latest from Our Blog</h2>
+                    <div class="border-bottom border-warning mx-auto mb-4" style="width: 150px;"></div>
+                    <div class="row">
+                        <div class="col-md-4 ">
+                            <div class="card">
+                                <img src="https://yolandalau.com/wp-content/uploads/sites/3/2024/02/image-3.png"
+                                    class="card-img-top" alt="Blog Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Embracing Lifelong Learning: The Key to Personal and
+                                        Professional Growth
+                                    </h5>
+                                    <p class="card-text">Whether it’s enhancing career skills, pursuing a passion, or
+                                        staying
+                                        up-to-date with global trends, continuous education can help us lead more
+                                        fulfilling and
+                                        adaptable lives.</p>
+                                    <a href="blog1.html" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 ">
+                            <div class="card">
+                                <img src="https://storage.googleapis.com/schoolnet-content/blog/wp-content/uploads/2022/06/Why-Digital-Learning-Is-The-Future-of-Education.jpg"
+                                    class="card-img-top" alt="Blog Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">The Rise of Digital Learning: How Technology is Shaping the
+                                        Future of
+                                        Education</h5>
+                                    <p class="card-text">Let’s dive into the factors driving the digital learning
+                                        revolution and
+                                        what it means for the future of education.</p>
+                                    <a href="blog2.html" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 ">
+                            <div class="card">
+                                <img src="https://michiganvirtual.org/wp-content/uploads/2019/02/innovation-in-education-illustration-Converted-1-e1549566800607.png"
+                                    class="card-img-top" alt="Blog Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Engaging Education: How Interactive Learning Transforms Your
+                                        Learning
+                                        Experience</h5>
+                                    <p class="card-text">In this blog, we explore how interactive learning methods can
+                                        enhance your
+                                        understanding and make your educational experience more enjoyable and effective.
+                                    </p>
+                                    <a href="blog3.html" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section id="free-trial" class="container my-5 text-center">
+            <h2 class="display-4 mb-4">🌟 Start Your Free Trial Today!</h2>
+            <div class="border-bottom border-warning mx-auto mb-4" style="width: 200px;"></div>
+            <p class="lead mb-5">Experience the best of ScholarHub with free trial. Gain access to our premium
+                courses and get a taste of the full learning experience. No credit card required!</p>
+    
+            <div class="trial-section position-relative p-5 rounded shadow-lg text-white"
+                style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form class="p-4">
+                            <div class="form-group mb-4">
+                                <label for="email" class="h5">📧 Enter Your Email to Get Started</label>
+                                <input type="email" class="form-control form-control-lg mt-3" id="email"
+                                    placeholder="Enter your email" required>
+                            </div>
+                            <a href="signup.html" class="btn btn-light btn-lg px-5 py-2 mt-3 shadow-sm"
+                                style="font-weight: bold; display: inline-block; text-decoration: none;">
+                                🚀 Start Free Trial
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="animation-bg">
+                <div class="circle one"></div>
+                <div class="circle two"></div>
+                <div class="circle three"></div>
+            </div>
+        </section>
+
+        <section class="container my-5">
+
+            <h2 class="text-center display-4">What Our Students Say</h2>
+            <div class="border-bottom border-warning mx-auto mb-4" style="width: 150px;"></div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm p-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Siddhant</h5>
+                            <p class="card-text">"ScholarHub has transformed my learning experience! The courses are
+                                engaging, and I feel more confident in my skills."</p>
+                            <div class="text-warning">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm p-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Sanchit</h5>
+                            <p class="card-text">"The instructors at ScholarHub are highly knowledgeable, and the course
+                                content is top-notch. Highly recommended!"</p>
+                            <div class="text-warning">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm p-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Shivam</h5>
+                            <p class="card-text">"The free trial convinced me to join, and I’ve learned so much in just
+                                a
+                                few
+                                weeks. ScholarHub is amazing!"</p>
+                            <div class="text-warning">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About Us</h5>
+                    <p>Learn more about our mission and values.</p>
+                    <a href="AboutUs.html">Read More</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="1st page.html">Home</a></li>
+                        <li><a href="AboutUs.html">About Us</a></li>
+                        <li><a href="courses2.html">Courses</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="tandc.html">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@scholarhub.com</p>
+                    <p>Phone: +123 456 7890</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                        <a href="https://x.com/" class="fa fa-twitter"></a>
+                        <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const sliderContents = document.querySelectorAll('.slider-content');
+            let currentSlide = 0;
+            const slideInterval = 3000; 
+
+            function nextSlide() {
+               
+                sliderContents[currentSlide].classList.remove('active');
+
+                
+                currentSlide = (currentSlide + 1) % sliderContents.length;
+
+               
+                sliderContents[currentSlide].classList.add('active');
+            }
+
+          
+            setInterval(nextSlide, slideInterval);
+        });
+        const darkModeToggle = document.getElementById('darkModeToggle');
+    
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    }); 
+
+    const navbarBrand = document.querySelector('.navbar-brand');
+let originalText = 'ScholarHub';
+let newText = 'Enhance Your Learning';
+
+navbarBrand.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (navbarBrand.textContent.includes('ScholarHub')) {
+        navbarBrand.innerHTML = newText + '<span>.</span>';
+    } else {
+        navbarBrand.innerHTML = originalText + '<span>.</span>';
+    }
+});
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

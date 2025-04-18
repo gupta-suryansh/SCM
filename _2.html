@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScholarHub</title>
+    <link rel="icon" type="image/x-icon" href="Scholarhublogo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dropdown {
+            position: relative;
+            color:blue;
+            display: inline-block;
+        }
+
+        .dropdown-button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 10%;
+            
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            border: 1px solid #ccc;
+            z-index: 1;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .fixed-left {
+            position: fixed;
+            top: 90px;
+            height: calc(100vh - 90px);
+            overflow-y: auto;
+            width: 20%;
+            border: 1px solid black;
+        }
+
+        .scrolling-right {
+            margin-left: 20%;
+            width: 80%;
+            overflow-y: auto;
+            height: calc(100vh - 90px);
+            background-color: #e6e6fa;
+            position: relative;
+            top: 90px;
+        }
+
+        .inner-container {
+            display: flex;
+            margin-top: 80px;
+        }
+
+        .inner-left {
+            width: 20%;
+            margin: 0 10px;
+            background-color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+
+        }
+
+        .inner-right {
+            width: 80%;
+            background-color: #f5f5f5;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+        .inner-2nd{
+            width: 50%;
+            margin: 0 10px;
+            background-color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+         .inner-right2{
+            width: 50%;
+            margin: 0 10px;
+            background-color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+         }
+         .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 10px 0;
+            border-top: 1px solid #ddd;
+        }
+        .btn-custom {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+        }</style>
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top border border-dark" style="height:90px; background-color: beige;">
+        <ul class="nav justify-content-start" style="padding-top:5px;">
+            <h2 class="nav-item mr-4">ScholarHub</h2>
+            <li class="nav-item ml-4 dropdown">
+                <button class="dropdown-button text-primary"><a href="courses.html">Tutorial</a></button>
+                <div class="dropdown-content">
+                    <a href="#">HTML</a>
+                    <a href="#">CSS</a>
+                    <a href="#">JAVASCRIPT</a>
+                </div>
+            </li>
+            <li class="nav-item ml-4"><a class="nav-link active" style="font-size: 20px;color:blue;" aria-current="page"
+                    href="#">Exercises</a></li>
+            <li class="nav-item ml-4"><a class="nav-link active" style="font-size: 20px; color:blue;" href="p2.html">Services</a>
+            </li>
+            <li class="nav-item ml-4" style="margin-top: 5px;">
+                
+            <a ><input  type="text" id="searchBar" placeholder="Type to search..." oninput="highlightText()" style="width:350px; height:40px; border-radius:10px"></a>
+                    
+            </li>
+            </li>
+            <li class="nav-item ml-4"><a class="nav-link active" style="font-size: 20px;color:blue;" aria-current="page"
+                    href="1st page.html">Home</a></li>
+            <li class="nav-item ml-4"><a class="nav-link active" style="font-size: 20px;color:blue;" aria-current="page"
+                    href="AboutUs.html">About us</a></li>
+            <li class="nav-item ml-4"><a class="nav-link active" style="font-size: 20px; color:blue;" href="p2.html">Teachers</a>
+
+            <li class="nav-item ml-4"><button style="background: none; border:none;font-size:20px;margin-top:6px;color:blue;" onclick="goToProfilePage()"> Account</button></li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="fixed-left d-flex" style="font-size: 20px; background-color: white;">
+                <ul class="list-unstyled">
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="intro" data-index="0">1. HTML Introduction</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="structure" data-index="1">2. HTML Basic Structure</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="tags" data-index="2">3. HTML Tags and Elements</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="headings" data-index="3">4. HTML Headings</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="paragraphs" data-index="4">5. HTML Paragraphs</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="links" data-index="5">6. HTML Links</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="images" data-index="6">7. HTML Images</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="lists" data-index="7">8. HTML Lists</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="tables" data-index="8">9. HTML Tables</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="forms" data-index="9">10. HTML Forms</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="semantic" data-index="10">11. HTML Semantic Elements</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="attributes" data-index="11">12. HTML Attributes</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="multimedia" data-index="12">13. HTML Multimedia</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="layout" data-index="13">14. HTML Layout</a></li>
+                    <li class="mb-3"><a href="#" class="text-primary topic-link" data-topic="best-practices" data-index="14">15. HTML Best Practices</a></li>
+                </ul>
+            </div>
+            <div class="scrolling-right">
+                <div id="content-area" class="content-container">
+                    <h3>Select a topic to view content</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const topicContents = [
+            { topic: 'intro',
+             content: `<h2>HTML Introduction</h2>
+             <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages.</p>
+             <pre><code>&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;title&gt;My First Page&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    Hello, World!\n  &lt;/body&gt;\n&lt;/html&gt;</code></pre>` },
+
+            { topic: 'structure',
+             content: `<h2>HTML Basic Structure</h2>
+             <p>Every HTML document follows a standard structure:</p>
+             <ul><li>&lt;!DOCTYPE html&gt;</li><li>&lt;html&gt;...</li><li>&lt;head&gt;...</li><li>&lt;body&gt;...</li></ul>` },
+            { topic: 'tags',
+             content: `<h2>HTML Tags and Elements</h2><p>HTML uses tags to define elements. Tags are enclosed within angle brackets like &lt;tag&gt;...</p>` },
+            { topic: 'headings', content: `<h2>HTML Headings</h2><p>HTML provides six levels of headings: &lt;h1&gt; to &lt;h6&gt; for different levels of importance.</p>` },
+            { topic: 'paragraphs', content: `<h2>HTML Paragraphs</h2><p>The &lt;p&gt; tag is used to define a paragraph.</p>` },
+            { topic: 'links', content: `<h2>HTML Links</h2><p>Links are defined using the &lt;a&gt; tag.</p><pre><code>&lt;a href="https://www.example.com"&gt;Click Here&lt;/a&gt;</code></pre>` },
+            { topic: 'images', content: `<h2>HTML Images</h2><p>Images are embedded using the &lt;img&gt; tag.</p><pre><code>&lt;img src="image.jpg" alt="Image description"&gt;</code></pre>` },
+            { topic: 'lists', content: `<h2>HTML Lists</h2><p>HTML provides ordered and unordered lists using the &lt;ol&gt; and &lt;ul&gt; tags, respectively.</p>` },
+            { topic: 'tables', content: `<h2>HTML Tables</h2><p>Tables in HTML are created using &lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, and &lt;td&gt; tags.</p>` },
+            { topic: 'forms', content: `<h2>HTML Forms</h2><p>Forms are used to collect user input with tags like &lt;form&gt;, &lt;input&gt;, and &lt;textarea&gt;.</p>` },
+            { topic: 'semantic', content: `<h2>HTML Semantic Elements</h2><p>Semantic HTML refers to using tags that clearly describe their meaning, like &lt;article&gt;, &lt;footer&gt;, and &lt;section&gt;.</p>` },
+            { topic: 'attributes', content: `<h2>HTML Attributes</h2><p>HTML elements can have attributes that provide additional information. Examples include &lt;img src="..." alt="..."&gt;.</p>` },
+            { topic: 'multimedia', content: `<h2>HTML Multimedia</h2><p>HTML supports multimedia elements like &lt;audio&gt;, &lt;video&gt;, and &lt;iframe&gt;.</p>` },
+            { topic: 'layout', content: `<h2>HTML Layout</h2><p>HTML layout is often achieved using tags like &lt;div&gt;, &lt;section&gt;, and modern CSS techniques.</p>` },
+            { topic: 'best-practices', content: `<h2>HTML Best Practices</h2><ul><li>Use semantic elements.</li><li>Keep structure clear and concise.</li><li>Validate HTML code.</li></ul>` }
+        ];
+
+        let currentTopicIndex = -1;
+
+        document.querySelectorAll('.topic-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelectorAll('.topic-link').forEach(l => l.classList.remove('active-topic'));
+                this.classList.add('active-topic');
+                currentTopicIndex = parseInt(this.getAttribute('data-index'));
+                updateContentArea();
+            });
+        });
+
+        function updateContentArea() {
+            const contentArea = document.getElementById('content-area');
+            const currentTopic = topicContents[currentTopicIndex];
+
+            contentArea.innerHTML = currentTopic.content;
+
+            const navButtons = document.createElement('div');
+            navButtons.className = 'navigation-buttons';
+
+            const prevButton = document.createElement('button');
+            const nextButton = document.createElement('button');
+            
+            if (currentTopicIndex === 0) {
+                prevButton.textContent = 'Home';
+                prevButton.classList.add('btn-primary', 'btn-custom');
+                prevButton.addEventListener('click', () => {
+                    contentArea.innerHTML = '<div class="text-center text-muted mt-5"><h3>Select a topic to view content</h3></div>';
+                    currentTopicIndex = -1;
+                });
+            } else {
+                prevButton.textContent = 'Previous';
+                prevButton.classList.add('btn-secondary', 'btn-custom');
+                prevButton.addEventListener('click', () => {
+                    currentTopicIndex--;
+                    updateContentArea();
+                    document.querySelectorAll('.topic-link')[currentTopicIndex].classList.add('active-topic');
+                });
+            }
+
+if (currentTopicIndex === topicContents.length - 1) {
+    nextButton.textContent = 'Finish Course';
+    nextButton.classList.add('btn-success');
+    nextButton.addEventListener('click', () => {
+        window.location.href = 'mylearning.html';
+    });
+} else {
+    nextButton.textContent = 'Next';
+    nextButton.classList.add('btn-primary');
+    nextButton.addEventListener('click', () => {
+        currentTopicIndex++;
+        updateContentArea();
+        document.querySelectorAll('.topic-link')[currentTopicIndex].classList.add('active-topic');
+    });
+}
+
+            navButtons.appendChild(prevButton);
+            navButtons.appendChild(nextButton);
+
+            contentArea.appendChild(navButtons);
+        }
+    </script>
+</body>
+
+</html>
