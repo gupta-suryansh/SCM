@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(100%);
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .title {
+            font-size: 30px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            margin-bottom: 25px;
+            animation: slideUp 1s ease-out;
+        }
+
+        .title::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            transform: translateX(-50%);
+            height: 4px;
+            width: 40px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        }
+
+        .content form .user-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+        }
+
+        .user-details .input-box {
+            margin-bottom: 15px;
+            width: calc(100% / 2 - 20px);
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .user-details .input-box:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .user-details .input-box:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .user-details .input-box:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .user-details .input-box:nth-child(4) {
+            animation-delay: 0.5s;
+        }
+
+        .input-box span.details {
+            display: block;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .input-box input {
+            height: 45px;
+            width: 100%;
+            outline: none;
+            font-size: 16px;
+            border-radius: 8px;
+            padding-left: 15px;
+            border: 1px solid #ccc;
+            border-bottom-width: 2px;
+            transition: border 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .input-box input:focus {
+            border-color: #0077b6;
+            box-shadow: 0 4px 8px rgba(0, 119, 182, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .input-box input:hover {
+            border-color: #0077b6;
+            transform: translateY(-4px);
+        }
+
+        .input-box input.valid {
+            border-color: green;
+        }
+
+        .input-box input.invalid {
+            border-color: red;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .gender-details {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeInUp 1.2s ease-out forwards;
+        }
+
+        .gender-title {
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .category {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-top: 10px;
+        }
+
+        .category label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #333;
+            transition: transform 0.3s;
+        }
+
+        .category label:hover {
+            transform: scale(1.05);
+        }
+
+        .dot {
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: #d9d9d9;
+            border: 5px solid transparent;
+            transition: background 0.3s;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"]:checked+label .dot {
+            background: #0077b6;
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 35px;
+            animation: fadeInUp 1.5s ease-out forwards;
+        }
+
+        .button button {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            color: rgb(84, 78, 78);
+            background: linear-gradient(135deg, #d3d00a, #bfc9d3);
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+            animation-delay: 0.5s;
+        }
+
+        .button button:hover {
+            background: linear-gradient(-135deg, #d3d00a, #bfc9d3);
+            box-shadow: 0 6px 12px rgba(155, 89, 182, 0.3);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="background video.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="title">Registration</div>
+        <div class="content">
+            <form id="registerForm" >
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your number" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Confirm Password</span>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+                
+                <div class="gender-details">
+                    <span class="gender-title">Gender</span>
+                    <div class="category">
+                        <input type="radio" name="gender" value="male" id="male" required>
+                        <label for="male">
+                            <span class="dot one"></span>
+                            <span class="gender">Male</span>
+                        </label>
+                        <input type="radio" name="gender" value="female" id="female" required>
+                        <label for="female">
+                            <span class="dot two"></span>
+                            <span class="gender">Female</span>
+                        </label>
+                        <input type="radio" name="gender" value="other" id="other" required>
+                        <label for="other">
+                            <span class="dot three"></span>
+                            <span class="gender">Other</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="button">
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+   
+  <script>
+    document.getElementById('registerForm').onsubmit = async function (event) {
+      event.preventDefault();
+
+      // Get form values
+      const fullName = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+
+      try {
+        const response = await fetch('https://67406162d0b59228b7efd22d.mockapi.io/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fullName,
+            email,
+            phone,
+            password,
+            confirmPassword,
+            gender,
+          }),
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          alert('User registered successfully: ');
+          window.location.href = 'login.html'
+        } else {
+          alert('Error: ' + response.statusText);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      }
+    };
+  </script>
+  </body>
+</html>

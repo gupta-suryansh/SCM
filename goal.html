@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set the Goal</title>
+    <link rel="icon" type="image/x-icon" href="Scholarhublogo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .search-box {
+            margin-bottom: 20px;
+            margin-top: 20px;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .search-box label {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #f2f2f2;
+            margin-right: 10px;
+        }
+
+        .search-box input {
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .nav-item {
+            border: 1px solid white;
+            border-style: dotted;
+            border-radius: 10px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .nav-item:hover {
+            background-color: #333;
+        }
+
+        .disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            color: #666;
+        }
+
+        .enabled {
+            background-color: #ffffff;
+            color: #171921;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .enabled:hover {
+            background-color: #f2f2f2;
+        }
+
+        .subjects-container {
+            margin-top: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            
+        }
+
+        .subject-item {
+            border: 2px solid green;
+            border-radius: 10px;
+            padding: 10px;
+            color: white;
+            background-color: #171921;
+            width: calc(33% - 20px);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .subject-item:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body style="background-color:#171921;">
+    <center>
+        <p class="text-white mt-5" style="font-size: 30px;">Set Your Goals</p>
+        <img src="goal.png" width="500px">
+    </center>
+    <div>
+        <ul class="nav text-white justify-content-center">
+            <li class="nav-item mr-3" onclick="updateSearchBar('Frontend developer')">Frontend Developer</li>
+            <li class="nav-item mr-3" onclick="updateSearchBar('Backend developer')">Backend Developer</li>
+            <li class="nav-item mr-3" onclick="updateSearchBar('Full Stack developer')">Full Stack Developer</li>
+            <li class="nav-item mr-3" onclick="updateSearchBar('Game Developer')">Game Developer</li>
+        </ul>
+        <div class="search-box">
+            <button id="searchButton" class="btn disabled mr-2" style="border-radius:10px" onclick="navigateToPlanning()" disabled>Search</button>
+            <input type="text" id="search" placeholder="Type to filter..." oninput="checkInputAndUpdateTopics()">
+        </div>
+        <div id="subjectsContainer" class="subjects-container"></div>
+    </div>
+
+    <script>
+        const subjectsMap = {
+            'frontend developer': ['HTML', 'CSS', 'JavaScript'],
+            'backend developer': [ 'Python', 'C++', 'Java','DSA'],
+            'full stack developer': ['HTML', 'CSS', 'JavaScript', 'SQL', 'DSA'],
+            'game developer': ['C++', 'C#', 'JavaScript', 'Game Design',]
+        };
+
+        function updateSearchBar(text) {
+            const searchInput = document.getElementById('search');
+            searchInput.value = text;
+            checkInputAndUpdateTopics();
+        }
+
+        function checkInputAndUpdateTopics() {
+            const searchInput = document.getElementById('search');
+            const searchValue = searchInput.value.trim().toLowerCase();
+            const searchButton = document.getElementById('searchButton');
+            const subjectsContainer = document.getElementById('subjectsContainer');
+
+            
+            if (searchValue) {
+                searchButton.disabled = false;
+                searchButton.classList.remove("disabled");
+                searchButton.classList.add("enabled");
+            } else {
+                searchButton.disabled = true;
+                searchButton.classList.add("disabled");
+                searchButton.classList.remove("enabled");
+            }
+
+    
+            subjectsContainer.innerHTML = '';
+            if (subjectsMap[searchValue]) {
+                subjectsMap[searchValue].forEach(subject => {
+                    const subjectItem = document.createElement('div');
+                    subjectItem.classList.add('subject-item');
+                    subjectItem.innerText = subject;
+                    subjectsContainer.appendChild(subjectItem);
+                });
+            } else if (searchValue) {
+                subjectsContainer.innerHTML = '<p style="color: white;">No relevant topics found.</p>';
+            }
+        }
+
+        function navigateToPlanning() {
+            const searchInput = document.getElementById('search').value.trim();
+            if (searchInput) {
+                window.location.href = 'mylearning.html';
+            }
+        }
+
+        window.onload = function() {
+            checkInputAndUpdateTopics();
+        }
+    </script>
+</body>
+</html>

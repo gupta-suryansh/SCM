@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and Highlight Example</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+
+        #searchBar {
+            margin: 20px;
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .content p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body id="bodyContent">
+    <input type="text" id="searchBar" placeholder="Type to search..." oninput="highlightText()">
+    <div id="content">
+    <h1>Search and Highlight Example</h1>
+
+        <div >
+        <p>This is a simple page where you can search for words, and they will be highlighted.</p>
+        <p>Try searching for words like "page", "highlight", or "simple".</p>
+        <p>The text you search for will appear highlighted in yellow across the page.</p>
+        <p>Start typing in the search box above to see the effect in action!</p>
+        <p>Feel free to experiment with different search terms!</p>
+
+        <div>
+            <h2>Header Example</h2>
+            <p>This paragraph contains another example of searchable text.</p>
+        </div>
+
+        <span>This is a span element with searchable text.</span>
+    </div>
+
+    <script>
+        function highlightText() {
+            var searchQuery = document.getElementById('searchBar').value.toLowerCase();
+
+            var bodyContent = document.getElementById('content').getElementsByTagName('*');
+
+            Array.from(bodyContent).forEach(function (element) {
+                var originalText = element.textContent || element.innerText;
+
+                if (searchQuery) {
+                    element.innerHTML = originalText;
+
+                    var regex = new RegExp(searchQuery, 'gi');
+                    element.innerHTML = element.innerHTML.replace(regex, function (match) {
+                        return `<span class="highlight">${match}</span>`;
+                    });
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+    </script>
+</div>
+</body>
+
+</html>

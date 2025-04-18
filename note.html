@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn HTML - Complete Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .tag-highlight {
+            color: #e74c3c;
+            font-family: monospace;
+        }
+
+        section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #eee;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .code-example {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #2c3e50;
+            margin: 15px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .note {
+            background-color: #f1f8ff;
+            padding: 15px;
+            border-left: 4px solid #58a6ff;
+            margin: 15px 0;
+        }
+
+        .element-list {
+            list-style: none;
+            display: grid;
+           
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .element-list li {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+
+        .topics-nav {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .topics-nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .topics-nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s;
+        }
+
+        .topics-nav a:hover {
+            background-color: #e9ecef;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .element-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="1st page.html" style="color: white;"><h1>Learn HTML</h1></a>
+        <p>A Simple Guide to HTML Elements and Structure</p>
+    </header>
+
+    <nav class="topics-nav">
+        <ul>
+            <li><a href="#basics">HTML Basics</a></li>
+            <li><a href="#structure">Page Structure</a></li>
+            <li><a href="#text">Text Elements</a></li>
+            <li><a href="#links">Links & Images</a></li>
+            <li><a href="#lists">Lists</a></li>
+            <li><a href="#tables">Tables</a></li>
+            <li><a href="#forms">Forms</a></li>
+        </ul>
+    </nav>
+
+    <section id="basics">
+        <h2>HTML Basics</h2>
+        <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages.</p>
+        <div class="code-example">
+            !DOCTYPE html;<br>
+            html lang="en"<br>
+            head<br>
+        title&gt;My First Page&lt;/title&gt;<br>
+            &lt;/head&gt;<br>
+            &lt;body&gt;<br>
+            &nbsp;&nbsp;&lt;h1&gt;Hello World!&lt;/h1&gt;<br>
+            &lt;/body&gt;<br>
+            &lt;/html&gt;
+        </div>
+        <div class="note">
+            <strong>Note:</strong> HTML elements are defined by tags, written using angle brackets.
+        </div>
+    </section>
+
+    <section id="structure">
+        <h2>Page Structure</h2>
+        <p>Every HTML page needs these basic structural elements:</p>
+        <ul class="element-list">
+            <li><span class="tag-highlight">&lt;!DOCTYPE html&gt;</span> - Document type declaration</li>
+            <li><span class="tag-highlight">&lt;html&gt;</span> - Root element</li>
+            <li><span class="tag-highlight">&lt;head&gt;</span> - Meta information</li>
+            <li><span class="tag-highlight">&lt;body&gt;</span> - Page content</li>
+        </ul>
+    </section>
+
+    <section id="text">
+        <h2>Text Elements</h2>
+        <p>HTML provides various elements for formatting text:</p>
+        <div class="code-example">
+            &lt;h1&gt;Heading 1&lt;/h1&gt;<br>
+            &lt;h2&gt;Heading 2&lt;/h2&gt;<br>
+            &lt;p&gt;Paragraph text&lt;/p&gt;<br>
+            &lt;strong&gt;Bold text&lt;/strong&gt;<br>
+            &lt;em&gt;Italic text&lt;/em&gt;
+        </div>
+    </section>
+
+    <section id="links">
+        <h2>Links and Images</h2>
+        <p>Links and images are fundamental to web pages:</p>
+        <div class="code-example">
+            &lt;a href="https://example.com"&gt;Click here&lt;/a&gt;<br>
+            &lt;img src="image.jpg" alt="Description"&gt;
+        </div>
+    </section>
+
+    <section id="lists">
+        <h2>Lists</h2>
+        <p>HTML supports ordered and unordered lists:</p>
+        <div class="code-example">
+            &lt;ul&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Unordered item&lt;/li&gt;<br>
+            &lt;/ul&gt;<br><br>
+            &lt;ol&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Ordered item&lt;/li&gt;<br>
+            &lt;/ol&gt;
+        </div>
+    </section>
+
+    <section id="tables">
+        <h2>Tables</h2>
+        <p>Tables are used to display data in rows and columns:</p>
+        <div class="code-example">
+            &lt;table&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Header&lt;/th&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Data&lt;/td&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+            &lt;/table&gt;
+        </div>
+    </section>
+
+    <section id="forms">
+        <h2>Forms</h2>
+        <p>Forms allow users to input data:</p>
+        <div class="code-example">
+            &lt;form&gt;<br>
+           input type="text" placeholder="Enter name<br>
+           input type="email" placeholder="Enter email"&gt;<br>
+           button type="submit"&gt;Submit&lt;/button&gt;<br>
+           /form
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Scholarhublogo.jpg">
+    <title>Sign In</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(100%);
+        }
+
+        h1 {
+            font-weight: bold;
+            margin: 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 20px;
+            margin: 20px 0 30px;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease-out forwards;
+        }
+
+        a {
+            color: #000000;
+            font-size: 14px;
+            text-decoration: none;
+            margin: 15px 0;
+            opacity: 0;
+            animation: fadeInUp 1.4s ease-out forwards;
+        }
+
+        button {
+            border-radius: 20px;
+            background: #000000;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 12px 45px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+            opacity: 0;
+            animation: fadeInUp 1.6s ease-out forwards;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #d6ddd5, #060606);
+        }
+
+        .container {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            width: 768px;
+            max-width: 100%;
+            min-height: 500px;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        .form-container {
+            padding: 50px;
+            height: 100%;
+            text-align: center;
+        }
+
+        .form-container form {
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            background-color: #e6edee;
+            border: none;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 8px;
+            opacity: 0;
+            animation: fadeInUp 1.8s ease-out forwards;
+        }
+
+        .sign-in-container {
+            width: 50%;
+        }
+
+        .sign-up-container {
+            display: none;
+            width: 50%;
+        }
+
+        .overlay-container {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            left: 50%;
+            overflow: hidden;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .overlay {
+            background: linear-gradient(90deg, #d3d00a, #bfc9d3);
+            position: relative;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .overlay-panel {
+            position: absolute;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 40px;
+            height: 100%;
+        }
+
+        .overlay-left {
+            transform: translateX(-20%);
+        }
+
+        .overlay-right {
+            right: 0;
+            transform: translateX(0);
+        }
+
+        .social-container {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInUp 2s ease-out forwards;
+        }
+
+        .social-container a {
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            height: 40px;
+            width: 40px;
+            color: #343f63;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .social-container a:hover {
+            color: #506ece;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="background video.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="form-container sign-in-container">
+            <form action="#" id="loginForm">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="https://www.facebook.com/" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" class="social"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="social-container" id="message" style="color:red;"></div>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <a href="signup.html">Forgot your password?</a>
+                <button id="signIn" type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start your journey with us</p>
+                    <button class="ghost" id="signUp"><a href="signup.html" style="color: #ddd;">Sign Up</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = async () => {
+            const user = sessionStorage.getItem("user");
+            if (user) {
+                window.location.href = "Dashboard.html";
+            }
+        };
+        
+        const apiUrl = 'https://67406162d0b59228b7efd22d.mockapi.io/users';
+        
+        document.getElementById('loginForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const messageElement = document.getElementById('message');
+        
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+        
+            try {
+                const response = await fetch(`${apiUrl}?email=${email}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const users = await response.json();
+        
+                if (users.length === 0) {
+                    messageElement.innerText = 'User not found!';
+                    messageElement.style.color = 'red';
+                } else {
+                    const user = users[0];
+        
+                    if (user.password === password) {
+                        
+                        sessionStorage.setItem('user', JSON.stringify({
+                            fullName: user.fullName,
+                            phone: user.phone,
+                            email: user.email,
+                            password: user.password,
+                            gender: user.gender
+                        }));
+                        
+                        window.location.href = "Dashboard.html";
+                    } else {
+                        messageElement.innerText = 'Incorrect password!';
+                        messageElement.style.color = 'red';
+                    }
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                messageElement.innerText = 'An unexpected error occurred. Please try again.';
+                messageElement.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+
+</html>

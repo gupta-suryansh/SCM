@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ScholarHub Terms and Conditions - Educational resources for students, teachers, and lifelong learners">
+  <link rel="icon" type="image/x-icon" href="Scholarhublogo.jpg">
+  <title>Terms and Conditions - ScholarHub</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+  <style>
+    :root {
+      --primary-color: #0a58ca;
+      --secondary-color: #0077b6;
+      --text-color: #333;
+      --bg-color: #f4f4f9;
+      --white: #fff;
+      --section-title-color: #200c37;
+      --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 6px 12px rgba(0, 0, 0, 0.15);
+      --spacing-sm: 10px;
+      --spacing-md: 20px;
+      --spacing-lg: 30px;
+      --spacing-xl: 40px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: var(--spacing-lg) 0;
+      text-align: center;
+      animation: slideDown 0.8s ease-out;
+    }
+
+    header h1 {
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 600;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
+      animation-delay: 0.5s;
+      padding: 0 var(--spacing-md);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: var(--spacing-xl) auto;
+      padding: var(--spacing-lg);
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+      border-radius: 8px;
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    h2 {
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 500;
+      color: var(--secondary-color);
+      margin-bottom: var(--spacing-md);
+      opacity: 0;
+      animation: slideUp 0.8s ease-out forwards;
+      animation-delay: 0.8s;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 16px;
+      margin-bottom: var(--spacing-md);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+    }
+
+    ul li {
+      margin-bottom: var(--spacing-sm);
+      position: relative;
+      padding-left: var(--spacing-md);
+      opacity: 0;
+      animation: fadeInLeft 0.6s ease-out forwards;
+    }
+
+    ul li::before {
+      content: "•";
+      color: var(--primary-color);
+      position: absolute;
+      left: 0;
+    }
+
+    .section-title {
+      font-size: clamp(18px, 3vw, 22px);
+      font-weight: 500;
+      color: var(--section-title-color);
+      margin-top: var(--spacing-xl);
+      margin-bottom: var(--spacing-sm);
+      opacity: 0;
+      animation: slideRight 0.8s ease-out forwards;
+      animation-delay: 0.5s;
+      transition: transform 0.3s ease;
+    }
+
+    .section-title:hover {
+      transform: translateX(5px);
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      text-align: center;
+      padding: var(--spacing-sm) 0;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      animation: slideUp 0.8s ease-out;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
+
+    .contact-info {
+      background-color: var(--bg-color);
+      padding: var(--spacing-md);
+      border-radius: 8px;
+      margin-top: var(--spacing-md);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: var(--spacing-md);
+        padding: var(--spacing-md);
+      }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInLeft {
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideRight {
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ScholarHub - Terms and Conditions</h1>
+</header>
+
+<main class="container">
+  <h2>Introduction</h2>
+  <p>Welcome to ScholarHub! By accessing and using this website, you agree to comply with the following Terms and Conditions. Please read them carefully.</p>
+
+  <div class="section-title">1. Acceptance of Terms</div>
+  <p>By accessing or using ScholarHub, you agree to these Terms and Conditions, as well as our Privacy Policy. If you do not agree with any part of these terms, you are prohibited from using our services.</p>
+
+  <div class="section-title">2. Use of Services</div>
+  <p>ScholarHub provides educational resources for students, teachers, and lifelong learners. You agree to use the services provided on this website for lawful purposes only.</p>
+
+  <div class="section-title">3. User Account</div>
+  <p>To access certain features, you may need to create an account on ScholarHub. You are responsible for maintaining the confidentiality of your account information and agree to notify us immediately of any unauthorized use of your account.</p>
+
+  <div class="section-title">4. Intellectual Property</div>
+  <p>The content, design, logos, and materials on ScholarHub are the property of ScholarHub and are protected by copyright and intellectual property laws. You may not use, reproduce, or distribute any content without prior permission.</p>
+
+  <div class="section-title">5. Prohibited Activities</div>
+  <ul>
+    <li>Impersonating others or engaging in fraudulent activities</li>
+    <li>Using the platform to transmit harmful or illegal content</li>
+    <li>Engaging in activities that disrupt or interfere with the services of ScholarHub</li>
+  </ul>
+
+  <div class="section-title">6. Limitation of Liability</div>
+  <p>ScholarHub is not liable for any damages or losses arising from the use or inability to use this website or its services, including indirect, incidental, or consequential damages.</p>
+
+  <div class="section-title">7. Changes to Terms</div>
+  <p>We reserve the right to modify these Terms and Conditions at any time. Any changes will be posted on this page, and by continuing to use ScholarHub, you accept the updated terms.</p>
+
+  <div class="section-title">8. Governing Law</div>
+  <p>These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which ScholarHub operates.</p>
+
+  <div class="section-title">9. Contact Information</div>
+  <div class="contact-info">
+    <p>If you have any questions or concerns about these Terms and Conditions, please contact us at:</p>
+    <p>Email: <a href="mailto:support@scholarhub.com">support@scholarhub.com</a></p>
+    <p>Phone: +123 456 7890</p>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2024 ScholarHub. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

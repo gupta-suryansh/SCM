@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScholarHub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        .dropdown-button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 10%;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            border: 1px solid #ccc;
+            z-index: 1;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .fixed-left {
+            position: fixed;
+            top: 90px;
+            height: calc(100vh - 90px);
+            overflow-y: auto;
+            width: 20%;
+            border: 1px solid black;
+        }
+
+        .scrolling-right {
+            margin-left: 20%;
+            width: 80%;
+            overflow-y: auto;
+            height: calc(100vh - 90px);
+            background-color: #e6e6fa;
+            position: relative;
+            top: 90px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .box {
+            border: 1px solid #ddd;
+            list-style-type: none;
+            width: 300px;
+            height: 320px;
+            margin-right: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .tutorials-container {
+            display: flex;
+            overflow-x: scroll;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .tutorial-box {
+            min-width: 300px;
+            height: 320px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tutorial-box:hover {
+            transform: scale(1.05);
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: black;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
+        .footer {
+            height: 200px;
+        }
+        .carousel-control-next-icon, .carousel-control-prev-icon{
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 100%;
+        }
+        .course-container {
+            margin-top: 0px;
+        }
+
+        .course {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 1150px;
+            border-radius: 10px;
+        }
+
+        .btn-enroll {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-enroll:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+
+        .btn-enroll:hover:not(:disabled) {
+            opacity: 0.9;
+        }
+        .course-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            width: 1100px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-container h3 {
+            color: #007bff;
+        }
+
+        .btn-start {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn-start:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top border border-dark"
+    style="height:90px; background-color: beige;">
+    <ul class="nav justify-content-start" style="padding-top:5px;">
+        <h2 class="nav-item mr-4">ScholarHub</h2>
+        <li class="nav-item ml-4 dropdown">
+            <button class="dropdown-button text-primary"><a href="Cours.html">Tutorial</a></button>
+            <div class="dropdown-content">
+                <a href="#">HTML</a>
+                <a href="#">CSS</a>
+                <a href="#">JAVASCRIPT</a>
+            </div>
+        </li>
+        <li class="nav-item ml-4"><a class="nav-link active" style="font-size: 20px;color:blue;" aria-current="page"
+                href="#">Exercises</a></li>
+        <li class="nav-item ml-4"><a class="nav-link active" style="font-size: 20px; color:blue;" href="#">Services</a>
+        </li>
+        <li class="nav-item ml-4" style="margin-top: 5px;">
+            
+        <a ><input  type="text" id="searchBar" placeholder="Type to search..." oninput="highlightText()" style="width:350px; height:40px; border-radius:10px"></a>
+                
+        </li>
+        </li>
+        <li class="nav-item ml-4"><a class="nav-link active" style="font-size: 20px;color:blue;" aria-current="page"
+                href="1st page.html">Home</a></li>
+        <li class="nav-item ml-4"><a class="nav-link active" style="font-size: 20px;color:blue;" aria-current="page"
+                href="AboutUs.html">About us</a></li>
+        <li class="nav-item ml-4"><a class="nav-link active" style="font-size: 20px; color:blue;" href="https://www.w3schools.com/academy/teachers/index.php">Teachers</a>
+
+        <li class="nav-item ml-4"><button style="background: none; border:none;font-size:20px;margin-top:6px;color:blue;" onclick="goToProfilePage()"> Account</button></li>
+    </ul>
+</nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="fixed-left d-flex" style="font-size: 20px; ">
+                <ul>
+                    <br>
+                    <p><a href="Dashboard.html" class="text-success">🕒Dashboard</a></p><br>
+                    <p><a href="mylearning.html" class="text-success nav-link-active"><img width="20px" src="images.png"
+                        style="margin-right: 10px; ">My Learning</a></p><br>
+                    <p>📝<a href="#" class="text-success">Tests</a></p><br>
+                    <p>🎯<a href="goal.html" class="text-success">Goals</a></p><br>
+                    <p><a href="User.html" class="text-success">❤Profile</a></p>
+                    <br>
+                    <p>🎓<a href="https://www.w3schools.com/academy/teachers/index.php" class="text-success">For Teachers</a></p><br>
+                    <p>╰┈➤🚪<a href="login.html" class="text-success">Logout</a></p>
+                </ul>
+            </div>
+
+            <div class="scrolling-right">
+                <ul class="nav" style="padding:20px">
+                    <h1 style="margin-top:10px;"><a href="#" style=" margin-bottom: 30px; margin-right:200px;">
+                            COURSES</a></h1>
+                    <li class="nav-item"
+                        style="background-color: purple; padding-top: 20px; padding-left:25px; padding-right:15px; width:190px; border-radius:30px">
+                        <a href="#" style="font-size: 20px; color: white;">✨ Pathfinder</a>
+                    </li>
+                    <li class="nav-item bg-white"
+                        style="width:250px; margin-left:50px ;font-size:16px;padding-top:20px; border-radius:30px; padding-left:10px">
+                        🔥1 &nbsp 🔥2 &nbsp 🔥3 &nbsp🔥4&nbsp🔥5........</li>
+                    <li class="nav-item bg-white"></li>
+                </ul>
+                <br>
+                <br>
+                <ul class="nav" style="margin-left:20px; font-size:25px">
+                    <li class="nav-item " style="margin-right:90px;"><a href="#" class=".link-color:active">All Courses</a></li>
+                    
+                </ul>
+                <p class="border border-dark" style="margin-left:20px; margin-right:20px"></p>
+                <h4 style="margin-top: 20px; margin-left:40px"> Enrolled</h4>
+                <br><br>
+                <div class="container">
+                    <div id="enrolledCourses"></div>
+                </div>
+            
+        </div>
+    </div>
+    <script>
+        const enrollAPI = "https://6744315db4e2e04abea12fc3.mockapi.io/enrolledCourse";
+
+        async function fetchEnrolledCourses() {
+            try {
+                const response = await fetch(enrollAPI);
+                const enrolledCourses = await response.json();
+
+                const enrolledCoursesContainer = document.getElementById('enrolledCourses');
+                if (enrolledCourses.length === 0) {
+                    enrolledCoursesContainer.innerHTML = "<p class='text-center'>You have not enrolled in any courses yet.</p>";
+                    return;
+                }
+
+                enrolledCourses.forEach(course => {
+                    const courseElement = document.createElement('div');
+                    courseElement.classList.add('course-container');
+
+                    courseElement.innerHTML = `
+                        <h3>${course.enrolledCourse}</h3>
+                        <p>${course.courseDetails}</p>
+                        <button class="btn-start" onclick="startCourse('${course.id}')">Start Now</button>
+                    `;
+
+                    enrolledCoursesContainer.appendChild(courseElement);
+                });
+            } catch (error) {
+                console.error("Error fetching enrolled courses:", error);
+                alert("Failed to load enrolled courses.");
+            }
+        }
+
+        function startCourse(courseId) {
+            window.location.href = `_${courseId}.html`;
+        }
+
+        fetchEnrolledCourses();
+    </script>
+</body>
+
+</html>

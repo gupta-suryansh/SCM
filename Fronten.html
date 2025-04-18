@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ScolarHub - Learn HTML</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      
+      .navbar {
+            background: linear-gradient(135deg, #0a58ca, #00b4d8);
+            color: white;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar-brand span {
+            color: #ffdd59;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffdd59;
+        }
+
+        .navbar .theme-toggle-btn {
+            background-color: #ffdd59;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            padding: 10px 20px;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .navbar .theme-toggle-btn:hover {
+            transform: scale(1.1);
+            background-color: #ffcc00;
+        }
+       
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .header span {
+            color: #3498db;
+        }
+
+        .card {
+            background-color: #e3f2fd;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        
+        .text-content h2 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .text-content p {
+            color: #34495e;
+            margin: 5px 0 0 0;
+            font-size: 16px;
+        }
+        body.dark-mode {
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .navbar.dark-mode {
+            background-color: #222;
+        }
+
+        .dark-mode-toggle{
+            margin-left: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light ">
+        <a class="navbar-brand" href="#">ScholarHub<span>.</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.html"><i class="fa fa-info-circle"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="courses.html"><i class="fa fa-graduation-cap"></i> Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactus.html"><i class="fa fa-envelope"></i> Contact</a>
+                </li>
+            </ul>
+            <a class="btn btn-primary ml-3" href="Loginpage.html"><i class="fa fa-user"></i> Login/Signup</a>
+<div class="dark-mode-toggle">
+    <button id="darkModeToggle" class="btn btn-secondary btn-sm">
+        <i class="fa fa-moon-o"></i> Toggle Dark Mode
+    </button>
+</div>
+    </nav>
+    <div class="container">
+
+        <div class="header">
+            <h1>Learn HTML with <span>ScolarHub</span></h1>
+        </div>
+        <a href="note.html">
+        <div class="card">
+            <div class="text-content">
+                <h2>HTML Notes</h2>
+               
+            </div>
+        </a>
+        </div>
+
+        <div class="card">
+           
+            <div class="text-content">
+                <h2>Some Good Youtubes Channels To Study</h2>
+                
+            </div>
+        </div>
+
+        <div class="card">
+           
+            <div class="text-content">
+                <h2>Assignment</h2>
+               
+            </div>
+        </div>
+
+        <div class="card">
+           
+            <div class="text-content">
+                <h2>Strat CSS</h2>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+           const darkModeToggle = document.getElementById('darkModeToggle');
+    
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    }); 
+    </script>
+</body>
+</html>

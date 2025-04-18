@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Scholarhublogo.jpg">
+    <title>Explore Our Courses</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            padding-top: 60px;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #0a58ca, #033770);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            font-size: 1.1rem;
+            padding: 15px 20px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #032f5a;
+            color: #ffc107;
+            border-radius: 5px;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: 600;
+            font-size: 2rem;
+        }
+
+        .navbar-brand span {
+            color: #ffc107;
+        }
+
+        .courses-header {
+            background: url('https://images.unsplash.com/photo-1519985176271-adb1088fa94c') center center no-repeat;
+            background-size: cover;
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+            box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .courses-header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .filter-btns {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            border: 2px solid #0a58ca;
+            color: #0a58ca;
+            background-color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background-color: #0a58ca;
+            color: white;
+        }
+
+        .container.courses-content {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .course-card {
+            margin-top: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            opacity: 0;
+            animation: slideIn 0.6s forwards;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .course-card .card-body {
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .course-card .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0a58ca;
+        }
+
+        .course-card .card-text {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .course-card .btn-primary {
+            background-color: #0a58ca;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .course-card .btn-primary:hover {
+            background-color: #033770;
+        }
+
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .footer {
+            background-color: #0a58ca;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: inset 0 -4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer p {
+            font-size: 1rem;
+        }
+
+        .footer a {
+            color: #ffc107;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .social-icons a {
+            margin: 0 15px;
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand" href="1st page.html">ScholarHub<span>.</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="1st page.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactus.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="courses-header">
+        <div class="container">
+            <h1>Explore Our Courses</h1>
+            <p>Choose the path that best suits your interests and career goals.</p>
+        </div>
+    </header>
+
+    <div class="container courses-content">
+        <div class="filter-btns">
+            <span class="filter-btn active" data-filter="all">All</span>
+            <span class="filter-btn" data-filter="frontend">Frontend</span>
+            <span class="filter-btn" data-filter="backend">Backend</span>
+            <span class="filter-btn" data-filter="animation">Animation</span>
+            <span class="filter-btn" data-filter="data-science">Data Science</span>
+            <span class="filter-btn" data-filter="cloud-computing">Cloud Computing</span>
+            <span class="filter-btn" data-filter="cyber-security">Cyber Security</span>
+            <span class="filter-btn" data-filter="mobile-development">Mobile Development</span>
+            <span class="filter-btn" data-filter="ai-ml">AI & Machine Learning</span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 course-item frontend">
+                <div class="card course-card">
+                    <img src="frontend.jpg" alt="Frontend Development">
+                    <div class="card-body">
+                        <h5 class="card-title">Frontend Development</h5>
+                        <p class="card-text">Learn how to build visually appealing websites with HTML, CSS, JavaScript,
+                            React, and more.</p>
+                        <a href="login.html" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 course-item frontend">
+                <div class="card course-card">
+                    <img src="advanced css and sass.jpg" alt="Advanced CSS">
+                    <div class="card-body">
+                        <h5 class="card-title">Advanced CSS & SASS</h5>
+                        <p class="card-text">Master modern CSS techniques, animations, and pre-processors like SASS.</p>
+                        <a href="login.html" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 course-item backend">
+                <div class="card course-card">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Backend Development">
+                    <div class="card-body">
+                        <h5 class="card-title">Backend Development</h5>
+                        <p class="card-text">Learn server-side development with Node.js, Express, MongoDB, and other
+                            technologies.</p>
+                        <a href="login.html" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 course-item data-science">
+                <div class="card course-card">
+                    <img src="https://images.unsplash.com/photo-1532077795300-c4b487f601f6" alt="Data Science">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Science & Analytics</h5>
+                        <p class="card-text">Dive into data with Python, R, Machine Learning, and AI techniques.</p>
+                        <a href="login.html" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 course-item cloud-computing">
+                <div class="card course-card">
+                    <img src="Cloud Computing.jpeg" alt="Cloud Computing">
+                    <div class="card-body">
+                        <h5 class="card-title">Cloud Computing</h5>
+                        <p class="card-text">Learn AWS, Azure, Google Cloud, and how to deploy scalable applications.
+                        </p>
+                        <a href="login.html" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 course-item cyber-security">
+                <div class="card course-card">
+                    <img src="Cybersecurity.jpg" alt="Cyber Security">
+                    <div class="card-body">
+                        <h5 class="card-title">Cyber Security</h5>
+                        <p class="card-text">Learn how to protect systems and data from digital attacks.</p>
+                        <a href="login.html" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 course-item animation">
+                <div class="card course-card">
+                    <img src="animation n graphics.jpg" alt="Animation & Graphics">
+                    <div class="card-body">
+                        <h5 class="card-title">Animation & Graphics</h5>
+                        <p class="card-text">Explore 2D and 3D animation with tools like Blender, After Effects, and
+                            more.</p>
+                        <a href="login.html" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 course-item ai-ml">
+                <div class="card course-card">
+                    <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7" alt="AI & Machine Learning">
+                    <div class="card-body">
+                        <h5 class="card-title">AI & Machine Learning</h5>
+                        <p class="card-text">Learn the fundamentals and advanced concepts of AI, Neural Networks, and
+                            Machine Learning algorithms.</p>
+                        <a href="login.html" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 course-item mobile-development">
+                <div class="card course-card">
+                    <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a"
+                        alt="Mobile App Development">
+                    <div class="card-body">
+                        <h5 class="card-title">Mobile App Development</h5>
+                        <p class="card-text">Master mobile app development for Android and iOS with Flutter, React
+                            Native, and more.</p>
+                        <a href="login.html" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 ScholarHub. All Rights Reserved.</p>
+        <p><a href="privacy policy.html">Privacy Policy</a> | <a href="tof.html">Terms of Service</a></p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
+            <a href="https://x.com/" class="fab fa-twitter"></a>
+            <a href="https://www.linkedin.com/" class="fab fa-linkedin-in"></a>
+            <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.filter-btn').click(function () {
+                let filter = $(this).attr('data-filter');
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
+
+                if (filter == 'all') {
+                    $('.course-item').show();
+                } else {
+                    $('.course-item').hide();
+                    $('.' + filter).show();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

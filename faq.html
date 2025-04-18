@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Scholarhublogo.jpg">
+    <title>FAQ - ScholarHub</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0a58ca;
+            --secondary-color: #ffdd59;
+            --text-color: #2c3e50;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            height: 60vh;
+            background: linear-gradient(rgba(10, 88, 202, 0.85), rgba(10, 88, 202, 0.95)), 
+                       url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(10, 88, 202, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 221, 89, 0.3) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.5s;
+            animation-fill-mode: both;
+            margin: 0;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-section {
+            padding: 80px 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .faq-section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .faq-item h5 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item h5::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active h5::after {
+            content: '-';
+        }
+
+        .faq-item p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            display: none;
+            margin: 0;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item.active p {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #0a58ca, #0043a8);
+            color: white;
+            padding: 60px 0 40px;
+            margin-top: 60px;
+        }
+
+        .footer h5 {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding-left: 5px;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            .faq-section {
+                padding: 40px 20px;
+            }
+
+            .faq-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about ScholarHub</p>
+        </div>
+    </header>
+
+    <section class="faq-section container">
+        <h2>Have Questions? We Have Answers!</h2>
+
+        <div class="faq-item">
+            <h5>What is ScholarHub?</h5>
+            <p>ScholarHub is an online learning platform that offers a wide range of courses across various disciplines
+                to help students achieve their academic and career goals.</p>
+        </div>
+
+        <div class="faq-item">
+            <h5>How can I enroll in a course?</h5>
+            <p>To enroll in a course, simply browse our courses, select one, and click the "Enroll Now" button. You will
+                be asked to sign up or log in before you can complete your enrollment.</p>
+        </div>
+
+        <div class="faq-item">
+            <h5>Do I need prior experience to take a course?</h5>
+            <p>Our courses cater to learners at all levels. Some courses may require basic knowledge in certain areas,
+                but we offer courses for beginners as well as advanced learners.</p>
+        </div>
+
+        <div class="faq-item">
+            <h5>Can I get a certificate after completing a course?</h5>
+            <p>Yes! Upon completing a course, you will receive a certificate that you can share with potential employers
+                or educational institutions.</p>
+        </div>
+
+        <div class="faq-item">
+            <h5>Are the courses free?</h5>
+            <p>While we offer both free and paid courses, most of our premium courses require a one-time fee for
+                enrollment. Check individual course pages for pricing details.</p>
+        </div>
+
+        <div class="faq-item">
+            <h5>Can I get a refund if I'm not satisfied with the course?</h5>
+            <p>Yes, we offer a 14-day refund policy for most courses. If you're not satisfied, you can request a refund
+                within 14 days of purchase. Please refer to our refund policy for more details.</p>
+        </div>
+
+        <div class="faq-item">
+            <h5>How do I contact support?</h5>
+            <p>If you need any assistance, you can reach our support team by emailing us at
+                <strong>support@scholarhub.com</strong>. We will be happy to assist you.</p>
+        </div>
+
+        <div class="faq-item">
+            <h5>Can I become an instructor on ScholarHub?</h5>
+            <p>Yes, we welcome instructors who are passionate about teaching. To become an instructor, you can apply via
+                the "Become an Instructor" section on our website.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About Us</h5>
+                    <p>Learn more about our mission and values.</p>
+                    <a href="AboutUs.html">Read More →</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="1st page.html">Home</a></li>
+                        <li><a href="AboutUs.html">About Us</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="tandc.html">Terms and Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@scholarhub.com</p>
+                    <p>Phone: +123 456 7890</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
